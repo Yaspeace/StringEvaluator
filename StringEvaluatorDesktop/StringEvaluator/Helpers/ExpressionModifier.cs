@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace StringEvaluatorDesktop.StringEvaluator.Helpers
 {
+    /// <summary>
+    /// Класс для преобразования входной строки в очередь токенов вида ОПЗ
+    /// </summary>
     public class ExpressionModifier
     {
         public Queue<IToken> Modify(string expression)
