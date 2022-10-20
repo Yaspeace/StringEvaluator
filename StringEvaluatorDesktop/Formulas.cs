@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
 /*
  * 2DO: 
  * 1. Сделать класс статическим
