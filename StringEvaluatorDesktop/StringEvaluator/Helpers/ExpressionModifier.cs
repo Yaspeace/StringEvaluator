@@ -1,7 +1,8 @@
-﻿using StringEvaluatorDesktop.StringEvaluator.Models.Tokens;
+﻿using StringEvaluatorDesktop.StringEvaluator.Models.Tokens.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,9 +13,5 @@ namespace StringEvaluatorDesktop.StringEvaluator.Helpers
     /// </summary>
     public class ExpressionModifier
     {
-        public Queue<IToken> Modify(string expression)
-        {
-            return new Queue<IToken>();
-        }
     }
 }

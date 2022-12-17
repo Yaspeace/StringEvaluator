@@ -1,4 +1,5 @@
-﻿using StringEvaluatorDesktop.StringEvaluator.Models.Variables;
+﻿using StringEvaluatorDesktop.StringEvaluator.Models.Tokens;
+using StringEvaluatorDesktop.StringEvaluator.Models.Variables;
 using System;
 using System.Collections.Generic;
 using System.Linq;

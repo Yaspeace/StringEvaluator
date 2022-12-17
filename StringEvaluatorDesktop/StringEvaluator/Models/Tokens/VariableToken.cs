@@ -1,24 +1,33 @@
-﻿using StringEvaluatorDesktop.StringEvaluator.Models.Variables;
+﻿using StringEvaluatorDesktop.StringEvaluator.Models.Tokens.Base;
+using StringEvaluatorDesktop.StringEvaluator.Models.Tokens.Standart;
+using StringEvaluatorDesktop.StringEvaluator.Models.Variables;
 
 namespace StringEvaluatorDesktop.StringEvaluator.Models.Tokens
 {
-    public class VariableToken : IToken
+    public class VariableToken : ParameterToken, IParseableToken, IEvaluatableToken
     {
-        private string name;
+        private IVariable variable;
 
-        private Dictionary<string, IVariable> variables;
-
-        public int Priority => 0;
-
-        public VariableToken(string variableName, Dictionary<string, IVariable> variables)
+        public VariableToken(IVariable variable)
         {
-            name = variableName;
-            this.variables = variables;
+            this.variable = variable;
         }
 
-        public void PerformOperation(Stack<double> stack)
+        public void Evaluate(Stack<double> stack)
         {
-            stack.Push(variables[name].Value);
+            stack.Push(variable.Value);
+        }
+
+        public int Parse(string input, int position, out ITypedToken? token)
+        {
+            if (input.Length - position >= variable.Name.Length
+                && input.Substring(position, variable.Name.Length) == variable.Name)
+            {
+                token = new VariableToken(variable);
+                return variable.Name.Length;
+            }
+            token = null;
+            return -1;
         }
     }
 }
