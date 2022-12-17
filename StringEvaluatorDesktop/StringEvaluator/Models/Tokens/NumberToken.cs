@@ -7,6 +7,8 @@ namespace StringEvaluatorDesktop.StringEvaluator.Models.Tokens
     {
         private double value;
 
+        public NumberToken() { }
+
         public NumberToken(double value)
         {
             this.value = value;

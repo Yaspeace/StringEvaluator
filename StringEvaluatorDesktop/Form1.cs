@@ -1,7 +1,9 @@
 using SortStation_CS;
+using StringEvaluatorDesktop.StringEvaluator.Helpers;
 using StringEvaluatorDesktop.StringEvaluator.Models.Tokens;
 using StringEvaluatorDesktop.StringEvaluator.Models.Tokens.Base;
 using StringEvaluatorDesktop.StringEvaluator.Models.Tokens.Standart;
+using StringEvaluatorDesktop.StringEvaluator.Models.Variables;
 
 namespace StringEvaluatorDesktop
 {
@@ -20,11 +22,10 @@ namespace StringEvaluatorDesktop
                 MessageBox.Show("Ошибка: не удается считать значение переменной Y!", "ОШИБКА");
             resultLbl.Text = new Formulas().Evaluate(expressionTb.Text, x, y).ToString();
 
-            var test = "123.45";
-            var tok = new NumberToken(0);
-            int res = tok.Parse(test, 0, out var newTok);
-            var test1 = newTok;
-
+            var parser = new Parser(new Variable[0]);
+            var testString = "-4";
+            var res = parser.Parse(testString);
+            var amogus = res;
         }
     }
 }

@@ -13,5 +13,6 @@ namespace StringEvaluatorDesktop.StringEvaluator.Helpers
     /// </summary>
     public class ExpressionModifier
     {
+
     }
 }

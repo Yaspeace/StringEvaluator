@@ -8,6 +8,8 @@ namespace StringEvaluatorDesktop.StringEvaluator.Models.Tokens
     {
         private IVariable variable;
 
+        public VariableToken() { }
+
         public VariableToken(IVariable variable)
         {
             this.variable = variable;
