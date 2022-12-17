@@ -53,6 +53,12 @@ namespace StringEvaluatorDesktop.StringEvaluator.Helpers
             int position = 0;
             while (position < input.Length)
             {
+                if (input[position] <= ' ')
+                {
+                    position++;
+                    continue;
+                }
+
                 bool parsed = false;
                 foreach (var t in tokens)
                 {
@@ -67,7 +73,7 @@ namespace StringEvaluatorDesktop.StringEvaluator.Helpers
                 }
 
                 if(!parsed)
-                    throw new Exception($"Не удаётся спарсить начало строки \"{input.Substring(position)}\"");
+                    throw new Exception($"Неизвестный символ '{input[position]}'");
             }
             return res;
         }
