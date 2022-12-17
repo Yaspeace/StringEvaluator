@@ -18,7 +18,7 @@ namespace StringEvaluatorDesktop.StringEvaluator.Models.Tokens
 
         public int Parse(string input, int position, out ITypedToken? token)
         {
-            if (input[position] == '*')
+            if (input[position] == '^')
             {
                 token = new PowToken();
                 return 1;

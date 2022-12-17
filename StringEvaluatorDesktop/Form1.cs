@@ -1,4 +1,5 @@
 using SortStation_CS;
+using StringEvaluatorDesktop.StringEvaluator;
 using StringEvaluatorDesktop.StringEvaluator.Helpers;
 using StringEvaluatorDesktop.StringEvaluator.Models.Tokens;
 using StringEvaluatorDesktop.StringEvaluator.Models.Tokens.Base;
@@ -20,12 +21,15 @@ namespace StringEvaluatorDesktop
                 MessageBox.Show("Ошибка: не удается считать значение переменной X!", "ОШИБКА");
             if (!double.TryParse(yValueTb.Text, out var y))
                 MessageBox.Show("Ошибка: не удается считать значение переменной Y!", "ОШИБКА");
-            resultLbl.Text = new Formulas().Evaluate(expressionTb.Text, x, y).ToString();
+            //resultLbl.Text = new Formulas().Evaluate(expressionTb.Text, x, y).ToString();
 
-            var parser = new Parser(new Variable[0]);
-            var testString = "-4";
-            var res = parser.Parse(testString);
-            var amogus = res;
+            var variables = new Variable[]
+            {
+                new Variable("x", x),
+                new Variable("y", y)
+            };
+            var expr = new Expression(expressionTb.Text, variables);
+            resultLbl.Text = expr.Evaluate().ToString();
         }
     }
 }

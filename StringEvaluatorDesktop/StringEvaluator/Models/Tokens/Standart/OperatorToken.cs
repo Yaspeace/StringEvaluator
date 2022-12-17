@@ -13,7 +13,7 @@ namespace StringEvaluatorDesktop.StringEvaluator.Models.Tokens.Standart
         public void Sort(Stack<ITypedToken> stack, Queue<IEvaluatableToken> output)
         {
             ITypedToken top;
-            while ((top = stack.Peek()).Type == TokenTypes.Operator
+            while (stack.Count > 0 && (top = stack.Peek()).Type == TokenTypes.Operator
                 && ((IsLeftAssociated && Priority <= AsOperator(top).Priority)
                     || (!IsLeftAssociated && Priority < AsOperator(top).Priority)))
             {
