@@ -21,9 +21,6 @@ namespace StringEvaluatorDesktop.StringEvaluator.Helpers
         {
             var res = new List<IParseableToken>();
 
-            foreach (var variable in variables)
-                res.Add(new VariableToken(variable));
-
             #region AllTokens
             res.Add(new OpeningParToken());
             res.Add(new ClosingParToken());
@@ -34,6 +31,8 @@ namespace StringEvaluatorDesktop.StringEvaluator.Helpers
             res.Add(new MultiplyToken());
             res.Add(new DivideToken());
             res.Add(new PowToken());
+            res.Add(new ExpToken());
+            res.Add(new ArctgToken());
 
             res.Add(new SinToken());
             res.Add(new CosToken());
@@ -42,7 +41,12 @@ namespace StringEvaluatorDesktop.StringEvaluator.Helpers
             res.Add(new SqrtToken());
 
             res.Add(new NumberToken());
+            res.Add(new PiToken());
+            res.Add(new EToken());
             #endregion
+
+            foreach (var variable in variables)
+                res.Add(new VariableToken(variable));
 
             return res;
         }

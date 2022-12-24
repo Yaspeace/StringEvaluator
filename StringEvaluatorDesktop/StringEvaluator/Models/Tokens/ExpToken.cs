@@ -3,23 +3,18 @@ using StringEvaluatorDesktop.StringEvaluator.Models.Tokens.Standart;
 
 namespace StringEvaluatorDesktop.StringEvaluator.Models.Tokens
 {
-    public class TanToken : FunctionToken, IParseableToken, IEvaluatableToken
+    public class ExpToken : FunctionToken, IParseableToken, IEvaluatableToken
     {
         public void Evaluate(Stack<double> stack)
         {
-            stack.Push(Math.Tan(stack.Pop()));
+            stack.Push(Math.Exp(stack.Pop()));
         }
 
         public int Parse(string input, int position, out ITypedToken? token)
         {
-            if (input.Length - position >= 2 && input.Substring(position, 2) == "tg")
+            if (input.Length - position >= 3 && input.Substring(position, 3) == "exp")
             {
-                token = new TanToken();
-                return 2;
-            }
-            if (input.Length - position >= 3 && input.Substring(position, 3) == "tan")
-            {
-                token = new TanToken();
+                token = new ExpToken();
                 return 3;
             }
             token = null;

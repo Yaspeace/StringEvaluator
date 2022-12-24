@@ -23,13 +23,20 @@ namespace StringEvaluatorDesktop
                 MessageBox.Show("Ошибка: не удается считать значение переменной Y!", "ОШИБКА");
             //resultLbl.Text = new Formulas().Evaluate(expressionTb.Text, x, y).ToString();
 
-            var variables = new Variable[]
+            try
             {
-                new Variable("x", x),
-                new Variable("y", y)
-            };
-            var expr = new Expression(expressionTb.Text, variables);
-            resultLbl.Text = expr.Evaluate().ToString();
+                var variables = new Variable[]
+                {
+                    new Variable("x", x),
+                    new Variable("y", y)
+                };
+                var expr = new Expression(expressionTb.Text, variables);
+                resultLbl.Text = expr.Evaluate().ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ОШИБКА");
+            }
         }
     }
 }
