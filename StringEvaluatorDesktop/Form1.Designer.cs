@@ -28,16 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Label label2;
             this.expressionTb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.solveBtn = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.resultLbl = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.xValueTb = new System.Windows.Forms.TextBox();
-            this.yValueTb = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.addVarBtn = new System.Windows.Forms.Button();
+            this.removeVarBtn = new System.Windows.Forms.Button();
+            label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(92, 35);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(82, 15);
+            label2.TabIndex = 8;
+            label2.Text = "Переменные:";
             // 
             // expressionTb
             // 
@@ -58,76 +67,65 @@
             // solveBtn
             // 
             this.solveBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.solveBtn.Location = new System.Drawing.Point(92, 99);
+            this.solveBtn.Location = new System.Drawing.Point(448, 6);
             this.solveBtn.Name = "solveBtn";
-            this.solveBtn.Size = new System.Drawing.Size(100, 23);
+            this.solveBtn.Size = new System.Drawing.Size(68, 23);
             this.solveBtn.TabIndex = 2;
-            this.solveBtn.Text = "Решить!";
+            this.solveBtn.Text = "=";
             this.solveBtn.UseVisualStyleBackColor = true;
             this.solveBtn.Click += new System.EventHandler(this.solveBtn_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(249, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Результат:";
             // 
             // resultLbl
             // 
             this.resultLbl.AutoSize = true;
             this.resultLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.resultLbl.Location = new System.Drawing.Point(309, 44);
+            this.resultLbl.Location = new System.Drawing.Point(522, 10);
+            this.resultLbl.MaximumSize = new System.Drawing.Size(100, 0);
             this.resultLbl.Name = "resultLbl";
             this.resultLbl.Size = new System.Drawing.Size(12, 15);
             this.resultLbl.TabIndex = 4;
             this.resultLbl.Text = "?";
             // 
-            // label3
+            // flowLayoutPanel1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(58, 44);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(28, 15);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "X = ";
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(92, 53);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(268, 354);
+            this.flowLayoutPanel1.TabIndex = 7;
             // 
-            // xValueTb
+            // addVarBtn
             // 
-            this.xValueTb.Location = new System.Drawing.Point(92, 41);
-            this.xValueTb.Name = "xValueTb";
-            this.xValueTb.Size = new System.Drawing.Size(100, 23);
-            this.xValueTb.TabIndex = 6;
+            this.addVarBtn.Location = new System.Drawing.Point(366, 53);
+            this.addVarBtn.Name = "addVarBtn";
+            this.addVarBtn.Size = new System.Drawing.Size(98, 23);
+            this.addVarBtn.TabIndex = 9;
+            this.addVarBtn.Text = "Добавить";
+            this.addVarBtn.UseVisualStyleBackColor = true;
+            this.addVarBtn.Click += new System.EventHandler(this.addVarBtn_Click);
             // 
-            // yValueTb
+            // removeVarBtn
             // 
-            this.yValueTb.Location = new System.Drawing.Point(92, 70);
-            this.yValueTb.Name = "yValueTb";
-            this.yValueTb.Size = new System.Drawing.Size(100, 23);
-            this.yValueTb.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(58, 73);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 15);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Y = ";
+            this.removeVarBtn.Location = new System.Drawing.Point(366, 82);
+            this.removeVarBtn.Name = "removeVarBtn";
+            this.removeVarBtn.Size = new System.Drawing.Size(98, 23);
+            this.removeVarBtn.TabIndex = 10;
+            this.removeVarBtn.Text = "Убрать";
+            this.removeVarBtn.UseVisualStyleBackColor = true;
+            this.removeVarBtn.Click += new System.EventHandler(this.removeVarBtn_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 170);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.yValueTb);
-            this.Controls.Add(this.xValueTb);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(646, 414);
+            this.Controls.Add(this.removeVarBtn);
+            this.Controls.Add(this.addVarBtn);
+            this.Controls.Add(label2);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.resultLbl);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.solveBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.expressionTb);
@@ -143,11 +141,10 @@
         private TextBox expressionTb;
         private Label label1;
         private Button solveBtn;
-        private Label label2;
         private Label resultLbl;
-        private Label label3;
-        private TextBox xValueTb;
-        private TextBox yValueTb;
-        private Label label4;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Label label2;
+        private Button addVarBtn;
+        private Button removeVarBtn;
     }
 }

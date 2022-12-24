@@ -1,35 +1,24 @@
-using SortStation_CS;
+using StringEvaluatorDesktop.Controls;
 using StringEvaluatorDesktop.StringEvaluator;
-using StringEvaluatorDesktop.StringEvaluator.Helpers;
-using StringEvaluatorDesktop.StringEvaluator.Models.Tokens;
-using StringEvaluatorDesktop.StringEvaluator.Models.Tokens.Base;
-using StringEvaluatorDesktop.StringEvaluator.Models.Tokens.Standart;
-using StringEvaluatorDesktop.StringEvaluator.Models.Variables;
 
 namespace StringEvaluatorDesktop
 {
     public partial class MainForm : Form
     {
+        private List<VariableInput> variableInputs = new List<VariableInput>();
+
         public MainForm()
         {
             InitializeComponent();
+            flowLayoutPanel1.Controls.Add(addVarBtn);
+            flowLayoutPanel1.Controls.Add(removeVarBtn);
         }
 
         private void solveBtn_Click(object sender, EventArgs e)
         {
-            if (!double.TryParse(xValueTb.Text, out var x))
-                MessageBox.Show("Ошибка: не удается считать значение переменной X!", "ОШИБКА");
-            if (!double.TryParse(yValueTb.Text, out var y))
-                MessageBox.Show("Ошибка: не удается считать значение переменной Y!", "ОШИБКА");
-            //resultLbl.Text = new Formulas().Evaluate(expressionTb.Text, x, y).ToString();
-
             try
             {
-                var variables = new Variable[]
-                {
-                    new Variable("x", x),
-                    new Variable("y", y)
-                };
+                var variables = variableInputs.Select(x => x.Value);
                 var expr = new Expression(expressionTb.Text, variables);
                 resultLbl.Text = expr.Evaluate().ToString();
             }
@@ -37,6 +26,25 @@ namespace StringEvaluatorDesktop
             {
                 MessageBox.Show(ex.Message, "ОШИБКА");
             }
+        }
+
+        private void addVarBtn_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Remove(addVarBtn);
+            flowLayoutPanel1.Controls.Remove(removeVarBtn);
+            var newInp = new VariableInput();
+            variableInputs.Add(newInp);
+            flowLayoutPanel1.Controls.Add(newInp);
+            flowLayoutPanel1.Controls.Add(addVarBtn);
+            flowLayoutPanel1.Controls.Add(removeVarBtn);
+        }
+
+        private void removeVarBtn_Click(object sender, EventArgs e)
+        {
+            var last = variableInputs.Last();
+            variableInputs.Remove(last);
+            flowLayoutPanel1.Controls.Remove(last);
+            last.Dispose();
         }
     }
 }
