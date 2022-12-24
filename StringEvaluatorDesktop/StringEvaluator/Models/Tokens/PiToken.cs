@@ -12,7 +12,7 @@ namespace StringEvaluatorDesktop.StringEvaluator.Models.Tokens
 
         public int Parse(string input, int position, out ITypedToken? token)
         {
-            if (input.Length >= 2 && input.Substring(position, 2).ToLower() == "pi")
+            if (input.Length - position >= 2 && input.Substring(position, 2).ToLower() == "pi")
             {
                 token = new PiToken();
                 return 2;
