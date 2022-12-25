@@ -12,7 +12,7 @@ namespace StringEvaluatorDesktop.StringEvaluator.Models.Tokens
 
         public int Parse(string input, int position, out ITypedToken? token)
         {
-            if (input[position] == 'e')
+            if (input[position] == 'e' || input[position] == 'E')
             {
                 token = new EToken();
                 return 1;

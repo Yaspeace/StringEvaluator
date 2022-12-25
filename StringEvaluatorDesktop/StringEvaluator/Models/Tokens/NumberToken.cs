@@ -54,7 +54,7 @@ namespace StringEvaluatorDesktop.StringEvaluator.Models.Tokens
             {
                 number += input[position];
                 position++;
-                if (input[position] == '-' || input[position] == '+') number += input[position];
+                if (input[position] == '-' || input[position] == '+') number += input[position++];
                 while (position < input.Length && input[position] >= '0' && input[position] <= '9') number += input[position++];
             }
 

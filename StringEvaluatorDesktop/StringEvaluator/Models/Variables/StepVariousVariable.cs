@@ -27,11 +27,12 @@
             _curStep = 0;
         }
 
-        public void Next()
+        public bool Next()
         {
+            if (CurrentStep >= StepsCount) return false;
             _curStep++;
-            if (CurrentStep > StepsCount) throw new Exception("Выход за границы количества шагов");
             _currentValue += _step;
+            return true;
         }
     }
 }

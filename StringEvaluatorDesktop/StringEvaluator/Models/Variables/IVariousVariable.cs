@@ -2,7 +2,7 @@
 {
     public interface IVariousVariable : IVariable
     {
-        void Next();
+        bool Next();
         int StepsCount { get; }
         int CurrentStep { get; }
     }

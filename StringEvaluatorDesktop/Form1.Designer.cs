@@ -62,6 +62,8 @@
             this.constBtn2 = new System.Windows.Forms.Button();
             this.numBtn11 = new System.Windows.Forms.Button();
             this.numBtn12 = new System.Windows.Forms.Button();
+            this.eraseBtn = new System.Windows.Forms.Button();
+            this.backspaceBtn = new System.Windows.Forms.Button();
             label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -108,7 +110,7 @@
             this.resultLbl.AutoSize = true;
             this.resultLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.resultLbl.Location = new System.Drawing.Point(522, 10);
-            this.resultLbl.MaximumSize = new System.Drawing.Size(100, 0);
+            this.resultLbl.MaximumSize = new System.Drawing.Size(130, 0);
             this.resultLbl.Name = "resultLbl";
             this.resultLbl.Size = new System.Drawing.Size(12, 15);
             this.resultLbl.TabIndex = 4;
@@ -283,7 +285,7 @@
             // 
             // funcBtn1
             // 
-            this.funcBtn1.Location = new System.Drawing.Point(364, 190);
+            this.funcBtn1.Location = new System.Drawing.Point(364, 198);
             this.funcBtn1.Name = "funcBtn1";
             this.funcBtn1.Size = new System.Drawing.Size(46, 23);
             this.funcBtn1.TabIndex = 24;
@@ -292,7 +294,7 @@
             // 
             // funcBtn2
             // 
-            this.funcBtn2.Location = new System.Drawing.Point(416, 190);
+            this.funcBtn2.Location = new System.Drawing.Point(416, 198);
             this.funcBtn2.Name = "funcBtn2";
             this.funcBtn2.Size = new System.Drawing.Size(46, 23);
             this.funcBtn2.TabIndex = 25;
@@ -301,7 +303,7 @@
             // 
             // funcBtn3
             // 
-            this.funcBtn3.Location = new System.Drawing.Point(364, 219);
+            this.funcBtn3.Location = new System.Drawing.Point(364, 227);
             this.funcBtn3.Name = "funcBtn3";
             this.funcBtn3.Size = new System.Drawing.Size(46, 23);
             this.funcBtn3.TabIndex = 26;
@@ -310,7 +312,7 @@
             // 
             // funcBtn4
             // 
-            this.funcBtn4.Location = new System.Drawing.Point(416, 219);
+            this.funcBtn4.Location = new System.Drawing.Point(416, 227);
             this.funcBtn4.Name = "funcBtn4";
             this.funcBtn4.Size = new System.Drawing.Size(46, 23);
             this.funcBtn4.TabIndex = 27;
@@ -319,7 +321,7 @@
             // 
             // funcBtn5
             // 
-            this.funcBtn5.Location = new System.Drawing.Point(468, 219);
+            this.funcBtn5.Location = new System.Drawing.Point(468, 227);
             this.funcBtn5.Name = "funcBtn5";
             this.funcBtn5.Size = new System.Drawing.Size(46, 23);
             this.funcBtn5.TabIndex = 28;
@@ -328,7 +330,7 @@
             // 
             // funcBtn6
             // 
-            this.funcBtn6.Location = new System.Drawing.Point(416, 248);
+            this.funcBtn6.Location = new System.Drawing.Point(416, 256);
             this.funcBtn6.Name = "funcBtn6";
             this.funcBtn6.Size = new System.Drawing.Size(46, 23);
             this.funcBtn6.TabIndex = 29;
@@ -346,7 +348,7 @@
             // 
             // funcBtn7
             // 
-            this.funcBtn7.Location = new System.Drawing.Point(468, 190);
+            this.funcBtn7.Location = new System.Drawing.Point(468, 198);
             this.funcBtn7.Name = "funcBtn7";
             this.funcBtn7.Size = new System.Drawing.Size(46, 23);
             this.funcBtn7.TabIndex = 31;
@@ -359,7 +361,7 @@
             this.constBtn2.Name = "constBtn2";
             this.constBtn2.Size = new System.Drawing.Size(46, 23);
             this.constBtn2.TabIndex = 32;
-            this.constBtn2.Text = "E";
+            this.constBtn2.Text = "e";
             this.constBtn2.UseVisualStyleBackColor = true;
             // 
             // numBtn11
@@ -380,11 +382,33 @@
             this.numBtn12.Text = ")";
             this.numBtn12.UseVisualStyleBackColor = true;
             // 
+            // eraseBtn
+            // 
+            this.eraseBtn.Location = new System.Drawing.Point(610, 82);
+            this.eraseBtn.Name = "eraseBtn";
+            this.eraseBtn.Size = new System.Drawing.Size(46, 23);
+            this.eraseBtn.TabIndex = 35;
+            this.eraseBtn.Text = "С";
+            this.eraseBtn.UseVisualStyleBackColor = true;
+            this.eraseBtn.Click += new System.EventHandler(this.eraseBtn_Click);
+            // 
+            // backspaceBtn
+            // 
+            this.backspaceBtn.Location = new System.Drawing.Point(610, 53);
+            this.backspaceBtn.Name = "backspaceBtn";
+            this.backspaceBtn.Size = new System.Drawing.Size(46, 23);
+            this.backspaceBtn.TabIndex = 36;
+            this.backspaceBtn.Text = "<-";
+            this.backspaceBtn.UseVisualStyleBackColor = true;
+            this.backspaceBtn.Click += new System.EventHandler(this.backspaceBtn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 414);
+            this.ClientSize = new System.Drawing.Size(668, 414);
+            this.Controls.Add(this.backspaceBtn);
+            this.Controls.Add(this.eraseBtn);
             this.Controls.Add(this.numBtn12);
             this.Controls.Add(this.numBtn11);
             this.Controls.Add(this.constBtn2);
@@ -461,5 +485,7 @@
         private Button constBtn2;
         private Button numBtn11;
         private Button numBtn12;
+        private Button eraseBtn;
+        private Button backspaceBtn;
     }
 }

@@ -94,5 +94,15 @@ namespace StringEvaluatorDesktop
             if (btn == null) return;
             expressionTb.Text += ((Button)btn)?.Text + "(";
         }
+
+        private void backspaceBtn_Click(object sender, EventArgs e)
+        {
+            expressionTb.Text = expressionTb.Text.Substring(0, expressionTb.Text.Length - 1);
+        }
+
+        private void eraseBtn_Click(object sender, EventArgs e)
+        {
+            expressionTb.Text = string.Empty;
+        }
     }
 }
