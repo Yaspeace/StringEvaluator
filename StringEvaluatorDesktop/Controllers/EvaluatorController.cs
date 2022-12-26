@@ -18,5 +18,7 @@ namespace StringEvaluatorDesktop.Controllers
             var expr = new Expression(expression, variables);
             return expr.Evaluate();
         }
+
+
     }
 }
