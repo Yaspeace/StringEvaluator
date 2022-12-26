@@ -1,4 +1,6 @@
-﻿using StringEvaluatorDesktop.StringEvaluator.Helpers;
+﻿using StringEvaluatorDesktop.Errors;
+using StringEvaluatorDesktop.Exceptions;
+using StringEvaluatorDesktop.StringEvaluator.Helpers;
 using StringEvaluatorDesktop.StringEvaluator.Models.Tokens.Base;
 using StringEvaluatorDesktop.StringEvaluator.Models.Variables;
 
@@ -35,7 +37,7 @@ namespace StringEvaluatorDesktop.StringEvaluator
             {
                 var token = stack.Pop();
                 if (token.Type == TokenTypes.OpeningPar || token.Type == TokenTypes.ClosingPar)
-                    throw new Exception("Незакрытая скобка в выражении");
+                    throw EvaluateErrors.BracketIsNotClosed;
                 output.Enqueue(token.AsEvaluatable());
             }
             return output;
