@@ -54,7 +54,7 @@ namespace StringEvaluatorDesktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "ОШИБКА");
+                MessageBox.Show(ex.Message, "Что-то пошло не так...");
             }
         }
 
