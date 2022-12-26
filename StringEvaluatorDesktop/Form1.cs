@@ -97,7 +97,8 @@ namespace StringEvaluatorDesktop
 
         private void backspaceBtn_Click(object sender, EventArgs e)
         {
-            expressionTb.Text = expressionTb.Text.Substring(0, expressionTb.Text.Length - 1);
+            if(!string.IsNullOrEmpty(expressionTb.Text))
+                expressionTb.Text = expressionTb.Text.Substring(0, expressionTb.Text.Length - 1);
         }
 
         private void eraseBtn_Click(object sender, EventArgs e)
