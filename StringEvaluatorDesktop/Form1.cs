@@ -1,5 +1,4 @@
 using StringEvaluatorDesktop.Controls;
-using StringEvaluatorDesktop.Exceptions;
 using StringEvaluatorDesktop.StringEvaluator;
 
 namespace StringEvaluatorDesktop
@@ -53,9 +52,9 @@ namespace StringEvaluatorDesktop
                 var expr = new Expression(expressionTb.Text, variables);
                 resultLbl.Text = expr.Evaluate().ToString();
             }
-            catch (EvaluateException ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.ErrorMessage, "Что то пошло не так...");
+                MessageBox.Show(ex.Message, "Что-то пошло не так...");
             }
         }
 

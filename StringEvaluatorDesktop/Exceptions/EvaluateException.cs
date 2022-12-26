@@ -8,11 +8,6 @@ namespace StringEvaluatorDesktop.Exceptions
 {
     public class EvaluateException : Exception
     {
-        public string ErrorMessage { get; set; }
-        public EvaluateException() { }
-        public EvaluateException(string errorMessage)
-        {
-            ErrorMessage = errorMessage;
-        }
+        public EvaluateException(string errorMessage) : base(errorMessage) { }
     }
 }
