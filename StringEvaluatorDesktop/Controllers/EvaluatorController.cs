@@ -35,7 +35,7 @@ namespace StringEvaluatorDesktop.Controllers
         /// <param name="N">Кол-во вычислений функции </param>
         /// <param name="variables">Параметры графика функции</param>
         /// <returns>Коллекция значений функции</returns>
-        public IEnumerable<double> GetFuncSolution(string expression, string argName, double minValue, double maxValue, int N, IEnumerable<IVariable> variables)
+        public IEnumerable<(double x, double y)> GetFuncSolution(string expression, string argName, double minValue, double maxValue, int N, IEnumerable<IVariable> variables)
         {
             var minMaxVariousVariable = new MinMaxVariousVariable(argName, minValue, maxValue, N);
             var list = new List<IVariable>
@@ -43,11 +43,11 @@ namespace StringEvaluatorDesktop.Controllers
                 minMaxVariousVariable
             };
             list.AddRange(variables);
-            var result = new List<double>();
+            var result = new List<(double, double)>();
             var expr = new Expression(expression, list);
             while (minMaxVariousVariable.Next())
             {
-                result.Add(expr.Evaluate());
+                result.Add((minMaxVariousVariable.Value, expr.Evaluate()));
             }
             return result;
         }

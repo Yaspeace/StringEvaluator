@@ -1,3 +1,5 @@
+using OxyPlot;
+using OxyPlot.Series;
 using StringEvaluatorDesktop.Controllers;
 using StringEvaluatorDesktop.Controls;
 using StringEvaluatorDesktop.Exceptions;
@@ -10,11 +12,17 @@ namespace StringEvaluatorDesktop
 
         private readonly EvaluatorController _controller;
 
+        private LineSeries _plotSeries;
+
         public MainForm()
         {
             _controller = new EvaluatorController();
 
             InitializeComponent();
+
+            _plotSeries = new LineSeries();
+            mainChart.Model = new PlotModel();
+            mainChart.Model.Series.Add(_plotSeries);
         }
 
         private void solveBtn_Click(object sender, EventArgs e)
@@ -79,6 +87,39 @@ namespace StringEvaluatorDesktop
         private void eraseBtn_Click(object sender, EventArgs e)
         {
             expressionTb.Text = string.Empty;
+        }
+
+        private void refreshChartBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _plotSeries.Points.Clear();
+
+                int n = (int)countNud.Value;
+                double min = (double)argumentMinNud.Value;
+                double max = (double)argumentMaxNud.Value;
+                var argumentName = argumentNameTb.Text;
+                var parameters = variableInputs.Select(x => x.Value).Where(x => x.Name != argumentName);
+
+                var newPoints = _controller.GetFuncSolution(
+                    expressionTb.Text,
+                    argumentName,
+                    min,
+                    max,
+                    n,
+                    parameters);
+                foreach (var point in newPoints)
+                    _plotSeries.Points.Add(new DataPoint(point.x, point.y));
+                mainChart.Refresh();
+            }
+            catch (EvaluateException ex)
+            {
+                MessageBox.Show($"Ошибка при вычислении выражения: {ex.Message}");
+            }
+            catch
+            {
+                MessageBox.Show("Произошла непредвиденная ошибка в работе приложения", "Что-то пошло не так...");
+            }
         }
     }
 }

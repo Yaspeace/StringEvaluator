@@ -66,11 +66,25 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.countNud = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.refreshChartBtn = new System.Windows.Forms.Button();
+            this.argumentMaxNud = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.argumentMinNud = new System.Windows.Forms.NumericUpDown();
+            this.mainChart = new OxyPlot.WindowsForms.PlotView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.argumentNameTb = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.resultLbl = new System.Windows.Forms.TextBox();
             label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.countNud)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.argumentMaxNud)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.argumentMinNud)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -429,7 +443,7 @@
             this.tabControl1.Location = new System.Drawing.Point(286, 53);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(383, 354);
+            this.tabControl1.Size = new System.Drawing.Size(379, 354);
             this.tabControl1.TabIndex = 37;
             // 
             // tabPage1
@@ -466,19 +480,175 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(375, 326);
+            this.tabPage1.Size = new System.Drawing.Size(371, 326);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Вычисление";
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.countNud);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.refreshChartBtn);
+            this.tabPage2.Controls.Add(this.argumentMaxNud);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.argumentMinNud);
+            this.tabPage2.Controls.Add(this.mainChart);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.argumentNameTb);
+            this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(375, 326);
+            this.tabPage2.Size = new System.Drawing.Size(371, 326);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "График функции";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // countNud
+            // 
+            this.countNud.Location = new System.Drawing.Point(286, 7);
+            this.countNud.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.countNud.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.countNud.Name = "countNud";
+            this.countNud.Size = new System.Drawing.Size(77, 23);
+            this.countNud.TabIndex = 9;
+            this.countNud.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(200, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(80, 15);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Вычислений:";
+            // 
+            // refreshChartBtn
+            // 
+            this.refreshChartBtn.BackgroundImage = global::StringEvaluatorDesktop.Properties.Resources.kisspng_computer_icons_arrow_symbol_configuration_management_icon_5b55a51783aee9_1471779115323394795394;
+            this.refreshChartBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.refreshChartBtn.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.refreshChartBtn.Location = new System.Drawing.Point(313, 33);
+            this.refreshChartBtn.Name = "refreshChartBtn";
+            this.refreshChartBtn.Size = new System.Drawing.Size(50, 25);
+            this.refreshChartBtn.TabIndex = 7;
+            this.refreshChartBtn.UseVisualStyleBackColor = true;
+            this.refreshChartBtn.Click += new System.EventHandler(this.refreshChartBtn_Click);
+            // 
+            // argumentMaxNud
+            // 
+            this.argumentMaxNud.DecimalPlaces = 5;
+            this.argumentMaxNud.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            327680});
+            this.argumentMaxNud.Location = new System.Drawing.Point(213, 35);
+            this.argumentMaxNud.Maximum = new decimal(new int[] {
+            1569325056,
+            23283064,
+            0,
+            0});
+            this.argumentMaxNud.Minimum = new decimal(new int[] {
+            1569325056,
+            23283064,
+            0,
+            -2147483648});
+            this.argumentMaxNud.Name = "argumentMaxNud";
+            this.argumentMaxNud.Size = new System.Drawing.Size(94, 23);
+            this.argumentMaxNud.TabIndex = 6;
+            this.argumentMaxNud.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(187, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(20, 15);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "до";
+            // 
+            // argumentMinNud
+            // 
+            this.argumentMinNud.DecimalPlaces = 5;
+            this.argumentMinNud.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            327680});
+            this.argumentMinNud.Location = new System.Drawing.Point(87, 35);
+            this.argumentMinNud.Maximum = new decimal(new int[] {
+            1569325056,
+            23283064,
+            0,
+            0});
+            this.argumentMinNud.Minimum = new decimal(new int[] {
+            1569325056,
+            23283064,
+            0,
+            -2147483648});
+            this.argumentMinNud.Name = "argumentMinNud";
+            this.argumentMinNud.Size = new System.Drawing.Size(94, 23);
+            this.argumentMinNud.TabIndex = 4;
+            this.argumentMinNud.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            // 
+            // mainChart
+            // 
+            this.mainChart.Location = new System.Drawing.Point(6, 69);
+            this.mainChart.Name = "mainChart";
+            this.mainChart.PanCursor = System.Windows.Forms.Cursors.Hand;
+            this.mainChart.Size = new System.Drawing.Size(362, 251);
+            this.mainChart.TabIndex = 0;
+            this.mainChart.Text = "plotView1";
+            this.mainChart.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
+            this.mainChart.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE;
+            this.mainChart.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 37);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 15);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Значение от";
+            // 
+            // argumentNameTb
+            // 
+            this.argumentNameTb.Location = new System.Drawing.Point(158, 6);
+            this.argumentNameTb.Name = "argumentNameTb";
+            this.argumentNameTb.Size = new System.Drawing.Size(36, 23);
+            this.argumentNameTb.TabIndex = 2;
+            this.argumentNameTb.Text = "x";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(146, 15);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Имя аргумента функции:";
             // 
             // resultLbl
             // 
@@ -494,7 +664,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 414);
+            this.ClientSize = new System.Drawing.Size(666, 414);
             this.Controls.Add(this.resultLbl);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(label2);
@@ -507,6 +677,11 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.countNud)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.argumentMaxNud)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.argumentMinNud)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -553,5 +728,15 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private TextBox resultLbl;
+        private NumericUpDown argumentMaxNud;
+        private Label label5;
+        private NumericUpDown argumentMinNud;
+        private OxyPlot.WindowsForms.PlotView mainChart;
+        private Label label4;
+        private TextBox argumentNameTb;
+        private Label label3;
+        private Button refreshChartBtn;
+        private NumericUpDown countNud;
+        private Label label6;
     }
 }
