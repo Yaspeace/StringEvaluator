@@ -1,4 +1,5 @@
-﻿using StringEvaluatorDesktop.StringEvaluator.Models.Tokens;
+﻿using StringEvaluatorDesktop.Exceptions;
+using StringEvaluatorDesktop.StringEvaluator.Models.Tokens;
 using StringEvaluatorDesktop.StringEvaluator.Models.Tokens.Base;
 using StringEvaluatorDesktop.StringEvaluator.Models.Tokens.Standart;
 using StringEvaluatorDesktop.StringEvaluator.Models.Variables;
@@ -77,7 +78,7 @@ namespace StringEvaluatorDesktop.StringEvaluator.Helpers
                 }
 
                 if(!parsed)
-                    throw new Exception($"Неизвестный символ '{input[position]}'");
+                    throw new ParsingException(input[position]);
             }
             return res;
         }

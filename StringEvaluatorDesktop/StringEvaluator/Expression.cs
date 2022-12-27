@@ -1,5 +1,4 @@
 ﻿using StringEvaluatorDesktop.Errors;
-using StringEvaluatorDesktop.Exceptions;
 using StringEvaluatorDesktop.StringEvaluator.Helpers;
 using StringEvaluatorDesktop.StringEvaluator.Models.Tokens.Base;
 using StringEvaluatorDesktop.StringEvaluator.Models.Variables;
@@ -24,8 +23,15 @@ namespace StringEvaluatorDesktop.StringEvaluator
         {
             if (rpnExpression == null) rpnExpression = ConvertToRpn(tokenExpression);
             var resultStack = new Stack<double>();
-            foreach (var token in rpnExpression) token.Evaluate(resultStack);
-            return resultStack.Pop();
+            try
+            {
+                foreach (var token in rpnExpression) token.Evaluate(resultStack);
+                return resultStack.Pop();
+            }
+            catch
+            {
+                throw EvaluateErrors.IncorrectExpression;
+            }
         }
 
         private IEnumerable<IEvaluatableToken> ConvertToRpn(IEnumerable<ITypedToken> expr)

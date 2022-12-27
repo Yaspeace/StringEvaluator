@@ -1,5 +1,6 @@
+using StringEvaluatorDesktop.Controllers;
 using StringEvaluatorDesktop.Controls;
-using StringEvaluatorDesktop.StringEvaluator;
+using StringEvaluatorDesktop.Exceptions;
 
 namespace StringEvaluatorDesktop
 {
@@ -7,54 +8,28 @@ namespace StringEvaluatorDesktop
     {
         private List<VariableInput> variableInputs = new List<VariableInput>();
 
+        private readonly EvaluatorController _controller;
+
         public MainForm()
         {
+            _controller = new EvaluatorController();
+
             InitializeComponent();
-            flowLayoutPanel1.Controls.Add(addVarBtn);
-            flowLayoutPanel1.Controls.Add(removeVarBtn);
-
-            numBtn1.Click += NumBtnClicked;
-            numBtn2.Click += NumBtnClicked;
-            numBtn3.Click += NumBtnClicked;
-            numBtn4.Click += NumBtnClicked;
-            numBtn5.Click += NumBtnClicked;
-            numBtn6.Click += NumBtnClicked;
-            numBtn7.Click += NumBtnClicked;
-            numBtn8.Click += NumBtnClicked;
-            numBtn9.Click += NumBtnClicked;
-            numBtn10.Click += NumBtnClicked;
-            numBtn11.Click += NumBtnClicked;
-            numBtn12.Click += NumBtnClicked;
-
-            opBtn1.Click += NumBtnClicked;
-            opBtn2.Click += NumBtnClicked;
-            opBtn3.Click += NumBtnClicked;
-            opBtn4.Click += NumBtnClicked;
-            opBtn5.Click += NumBtnClicked;
-
-            constBtn1.Click += NumBtnClicked;
-            constBtn2.Click += NumBtnClicked;
-
-            funcBtn1.Click += FuncBtnClicked;
-            funcBtn2.Click += FuncBtnClicked;
-            funcBtn3.Click += FuncBtnClicked;
-            funcBtn4.Click += FuncBtnClicked;
-            funcBtn5.Click += FuncBtnClicked;
-            funcBtn6.Click += FuncBtnClicked;
-            funcBtn7.Click += FuncBtnClicked;
         }
 
         private void solveBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                var variables = variableInputs.Select(x => x.Value);
-                var expr = new Expression(expressionTb.Text, variables);
-                resultLbl.Text = expr.Evaluate().ToString();
+                resultLbl.Text = _controller.GetSolution(expressionTb.Text, variableInputs.Select(x => x.Value)).ToString();
             }
-            catch (Exception ex)
+            catch (EvaluateException ex)
             {
-                MessageBox.Show(ex.Message, "Что-то пошло не так...");
+                MessageBox.Show($"Ошибка при вычислении выражения: {ex.Message}");
+            }
+            catch
+            {
+                MessageBox.Show("Произошла непредвиденная ошибка в работе приложения", "Что-то пошло не так...");
             }
         }
 
