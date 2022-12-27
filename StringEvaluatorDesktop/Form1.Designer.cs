@@ -32,7 +32,6 @@
             this.expressionTb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.solveBtn = new System.Windows.Forms.Button();
-            this.resultLbl = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.addVarBtn = new System.Windows.Forms.Button();
             this.removeVarBtn = new System.Windows.Forms.Button();
@@ -67,6 +66,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.resultLbl = new System.Windows.Forms.TextBox();
             label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -109,17 +109,6 @@
             this.solveBtn.Text = "=";
             this.solveBtn.UseVisualStyleBackColor = true;
             this.solveBtn.Click += new System.EventHandler(this.solveBtn_Click);
-            // 
-            // resultLbl
-            // 
-            this.resultLbl.AutoSize = true;
-            this.resultLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.resultLbl.Location = new System.Drawing.Point(522, 10);
-            this.resultLbl.MaximumSize = new System.Drawing.Size(130, 0);
-            this.resultLbl.Name = "resultLbl";
-            this.resultLbl.Size = new System.Drawing.Size(12, 15);
-            this.resultLbl.TabIndex = 4;
-            this.resultLbl.Text = "?";
             // 
             // flowLayoutPanel1
             // 
@@ -491,15 +480,25 @@
             this.tabPage2.Text = "График функции";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // resultLbl
+            // 
+            this.resultLbl.BackColor = System.Drawing.SystemColors.Control;
+            this.resultLbl.Location = new System.Drawing.Point(522, 6);
+            this.resultLbl.MaxLength = 17;
+            this.resultLbl.Name = "resultLbl";
+            this.resultLbl.ReadOnly = true;
+            this.resultLbl.Size = new System.Drawing.Size(143, 23);
+            this.resultLbl.TabIndex = 38;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 414);
+            this.Controls.Add(this.resultLbl);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(label2);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.resultLbl);
             this.Controls.Add(this.solveBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.expressionTb);
@@ -518,7 +517,6 @@
         private TextBox expressionTb;
         private Label label1;
         private Button solveBtn;
-        private Label resultLbl;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label2;
         private Button addVarBtn;
@@ -554,5 +552,6 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
+        private TextBox resultLbl;
     }
 }
