@@ -6,7 +6,12 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>evaluator1.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="evaluator1.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="OxyPlot.WindowsForms" Version="2.1.2" />
